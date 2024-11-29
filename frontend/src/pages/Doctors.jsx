@@ -5,6 +5,11 @@ import { AppContext } from "../context/AppContext";
 const Doctors = () => {
   const { speciality } = useParams();
   const navigate = useNavigate();
+  const [currentPage,setCurrentPage] = useState(1);
+  const [postPerPage,sePostPerPage] = useState(8);
+
+  
+  
 
   const [filterDoctors, serFilterDoctors] = useState([]);
   const { doctors } = useContext(AppContext);
@@ -17,6 +22,7 @@ const Doctors = () => {
     }
   };
 
+
   const Data = [
     "General physician",
     "Gynecologist",
@@ -28,6 +34,15 @@ const Doctors = () => {
   useEffect(() => {
     applyFilter();
   }, [doctors, speciality]);
+
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+  const currentPost = filterDoctors.slice(firstPostIndex,lastPostIndex);
+
+  let pages =[];
+  for(let i =1; i <= Math.ceil(filterDoctors.length/postPerPage);i++){
+    pages.push(i)
+  }
   return (
     <div>
       <p className="text-gray-600 ">Browse through the doctors specialist.</p>
@@ -52,7 +67,7 @@ const Doctors = () => {
         </div>
         {/* content */}
         <div className="w-full grid grid-cols-auto gap-4 gap-y-6 ">
-          {filterDoctors.map((item, i) => (
+          {currentPost.map((item, i) => (
             <div
               key={i}
               onClick={() => navigate(`/appointment/${item._id}`)}
@@ -69,8 +84,21 @@ const Doctors = () => {
               </div>
             </div>
           ))}
+
+
+         
         </div>
       </div>
+      <div className="flex items-center justify-center mt-8 gap-3">
+{
+  pages.map((item,i)=>(
+    <div key={i} className="">
+<button onClick={()=>{setCurrentPage(item);scrollTo(0,0)}} className={`${currentPage===item ? "bg-primary":"bg-gray-400"}  px-4 py-3 text-white rounded`}>{item}</button>
+    </div>
+    
+  ))
+}
+</div>
     </div>
   );
 };
