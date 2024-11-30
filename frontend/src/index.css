@@ -7,6 +7,9 @@
     scroll-behavior: smooth;
   }
 }
+.active button{
+  @apply bg-indigo-100 text-black
+}
 .active hr {
   @apply block;
 }

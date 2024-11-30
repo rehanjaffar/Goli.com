@@ -1,27 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
 const Doctors = () => {
   const { speciality } = useParams();
   const navigate = useNavigate();
-  const [currentPage,setCurrentPage] = useState(1);
-  const [postPerPage,sePostPerPage] = useState(8);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, sePostPerPage] = useState(8);
+  const [showfilter, setShowFilter] = useState(false);
 
-  
-  
-
-  const [filterDoctors, serFilterDoctors] = useState([]);
+  const [filterDoctors, setFilterDoctors] = useState([]);
   const { doctors } = useContext(AppContext);
 
   const applyFilter = () => {
     if (speciality) {
-      serFilterDoctors(doctors.filter((doc) => doc.speciality === speciality));
+      setFilterDoctors(doctors.filter((doc) => doc.speciality === speciality));
     } else {
-      serFilterDoctors(doctors);
+      setFilterDoctors(doctors);
     }
   };
-
 
   const Data = [
     "General physician",
@@ -37,18 +34,41 @@ const Doctors = () => {
 
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
-  const currentPost = filterDoctors.slice(firstPostIndex,lastPostIndex);
+  const currentPost = filterDoctors.slice(firstPostIndex, lastPostIndex);
 
-  let pages =[];
-  for(let i =1; i <= Math.ceil(filterDoctors.length/postPerPage);i++){
-    pages.push(i)
+  let pages = [];
+  for (let i = 1; i <= Math.ceil(filterDoctors.length / postPerPage); i++) {
+    pages.push(i);
   }
   return (
     <div>
       <p className="text-gray-600 ">Browse through the doctors specialist.</p>
       <div className="flex flex-col sm:flex-row items-start gap-5 mt-5">
+        <button
+          className={`px-3 py-1 border rounded text-sm transition-all duration-300 sm:hidden ${
+            showfilter && "bg-primary text-white"
+          }`}
+          onClick={() => setShowFilter((prev) => !prev)}
+        >
+          Filters
+        </button>
         {/* sidebar */}
-        <div className="flex flex-col gap-4 text-sm text-gray-600 min-w-[200px]">
+        <div
+          className={`${
+            showfilter ? "flex" : "hidden sm:flex"
+          } flex-col gap-4 text-sm text-gray-600 min-w-[200px]`}
+        >
+          <button
+            onClick={() => {
+              navigate("/doctors");
+            }}
+            className={`${
+              speciality === undefined && "bg-indigo-100 text-black"
+            } w-[94vw] sm:w-auto pl-3 py-1.5 border border-gray-300 rounded cursor-pointer transition-all`}
+          >
+            All Doctors
+          </button>
+
           {Data.map((item, i) => (
             <p
               key={i}
@@ -84,21 +104,25 @@ const Doctors = () => {
               </div>
             </div>
           ))}
-
-
-         
         </div>
       </div>
       <div className="flex items-center justify-center mt-8 gap-3">
-{
-  pages.map((item,i)=>(
-    <div key={i} className="">
-<button onClick={()=>{setCurrentPage(item);scrollTo(0,0)}} className={`${currentPage===item ? "bg-primary":"bg-gray-400"}  px-4 py-3 text-white rounded`}>{item}</button>
-    </div>
-    
-  ))
-}
-</div>
+        {pages.map((item, i) => (
+          <div key={i} className="">
+            <button
+              onClick={() => {
+                setCurrentPage(item);
+                scrollTo(0, 0);
+              }}
+              className={`${
+                currentPage === item ? "bg-primary" : "bg-gray-400"
+              }  px-4 py-3 text-white rounded`}
+            >
+              {item}
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
