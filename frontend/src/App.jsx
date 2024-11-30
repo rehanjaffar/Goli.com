@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <>
-      {/* <div className="mx-4 sm:mx-[10%]">
+      <div className="mx-4 sm:mx-[10%]">
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -28,7 +28,7 @@ function App() {
           <Route path="/appointment/:docId" element={<Appointment />} />
         </Routes>
         <Footer />
-      </div> */}
+      </div>
     </>
   );
 }
