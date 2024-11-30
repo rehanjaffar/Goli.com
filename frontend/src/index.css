@@ -2,16 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-    html {
+  html {
     scroll-behavior: smooth;
+  }
 }
-}
-.active hr{
-    @apply block
+.active hr {
+  @apply block;
 }
 
-::-webkit-scrollbar{
-    @apply hidden
+::-webkit-scrollbar {
+  @apply hidden;
+}
+
+@media (max-width: 740px) {
+  .active p {
+    @apply text-white bg-primary;
+  }
 }
