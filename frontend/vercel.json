@@ -1,7 +1,4 @@
 {
-  "git": {
-    "ignore": ["development", "main"]
-  },
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ]
