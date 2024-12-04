@@ -92,7 +92,7 @@ const Doctors = () => {
           {currentPost.map((item, i) => (
             <div
               key={i}
-              onClick={() => navigate(`/appointment/${item._id}`)}
+              onClick={() => navigate(`/appointment/${item._id || item.id}`)}
               className="border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500"
             >
               <img

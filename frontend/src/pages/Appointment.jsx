@@ -6,7 +6,7 @@ import RelatedDoctors from "../components/RelatedDoctors";
 
 const Appointment = () => {
   const { docId } = useParams();
-  const { doctors, currancySymbol } = useContext(AppContext);
+  const { doctor, currancySymbol, backendUrl } = useContext(AppContext);
   const [docInfo, setDocInfo] = useState(null);
   const [docSlots, setDocSlots] = useState([]);
   const [slotIndex, setSlotIndex] = useState(0);
@@ -14,7 +14,7 @@ const Appointment = () => {
   const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
   const fetchDocInfo = async () => {
-    const docInfo = doctors.find((doc) => doc._id === docId);
+    const docInfo = doctor.find((doc) => doc._id || doc.id === docId);
     setDocInfo(docInfo);
   };
 
@@ -64,7 +64,7 @@ const Appointment = () => {
 
   useEffect(() => {
     fetchDocInfo();
-  }, [doctors, docId]);
+  }, [doctor, docId]);
   useEffect(() => {
     getAvailableSlots();
   }, [docInfo]);
@@ -76,7 +76,11 @@ const Appointment = () => {
         <div className="flex flex-col sm:flex-row gap-4">
           <div>
             <img
-              src={docInfo.image}
+              src={
+                docInfo._id
+                  ? `${backendUrl}/${docInfo.image}`
+                  : `${docInfo.image}`
+              }
               alt=""
               className="bg-primary w-full sm:max-w-72 rounded-lg"
             />
@@ -157,7 +161,7 @@ const Appointment = () => {
         </div>
 
         {/* related doctors */}
-        <RelatedDoctors docId={docId} speciality={docInfo.speciality}/>
+        <RelatedDoctors docId={docId} speciality={docInfo.speciality} />
       </div>
     )
   );
