@@ -101,6 +101,19 @@ const NavBar = () => {
               <p className="px-4 py-2 rounded inline-block">CONTACT</p>
             </NavLink>
           </ul>
+          {!token && (
+            <div className="flex items-center justify-center mt-1">
+              <button
+                onClick={() => {
+                  setShowMenu(false);
+                  navigate("/login");
+                }}
+                className="bg-teal-600 text-white px-8 py-3 rounded-full font-medium "
+              >
+                Create account
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

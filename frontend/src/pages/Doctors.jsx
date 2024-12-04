@@ -61,6 +61,7 @@ const Doctors = () => {
           <button
             onClick={() => {
               navigate("/doctors");
+              setShowFilter((prev) => !prev);
             }}
             className={`${
               speciality === undefined && "bg-indigo-100 text-black"
@@ -72,11 +73,12 @@ const Doctors = () => {
           {Data.map((item, i) => (
             <p
               key={i}
-              onClick={() =>
+              onClick={() => {
                 speciality === item
                   ? navigate("/doctors")
-                  : navigate(`/doctors/${item}`)
-              }
+                  : navigate(`/doctors/${item}`);
+                setShowFilter((prev) => !prev);
+              }}
               className={`w-[94vw sm:w-auto pl-3 py-1.5 border border-gray-300 rounded cursor-pointer transition-all ${
                 speciality === item && "bg-indigo-100 text-black"
               }`}
