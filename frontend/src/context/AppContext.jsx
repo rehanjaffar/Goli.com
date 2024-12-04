@@ -1,7 +1,7 @@
 import { createContext, useEffect } from "react";
 import { doctors } from "../assets/assets";
 import { toast } from "react-toastify";
-
+import logo from "../assets/upload_area.png";
 import axios from "axios";
 import { useState } from "react";
 
@@ -14,6 +14,18 @@ const AppContextProvider = (props) => {
 
   const backendUrl = import.meta.env.VITE_BACKENDURL;
 
+  const [userData, setUserData] = useState({
+    image: logo,
+    name: "Rehan",
+    address: { line1: "", linw: "" },
+    email: "dumy@gmail.com",
+    phone: "+92 3** *******",
+    gender: "Male",
+  });
+
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+
+  //get all doctors data
   const getAllDoctors = async () => {
     try {
       const { data } = await axios.get(backendUrl + "/api/doctor/list");
@@ -27,11 +39,41 @@ const AppContextProvider = (props) => {
       toast.error(error.message);
     }
   };
+
+  const loadUserProfileData = async () => {
+    try {
+      const { data } = await axios.get(backendUrl + "/api/user/get-profile", {
+        headers: { token },
+      });
+      if (data.success) {
+        setUserData(data.userData);
+        toast.success(data.message);
+      } else {
+        toast.error(data.message);
+        console.log(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
   useEffect(() => {
     getAllDoctors();
   }, []);
+  useEffect(() => {
+    if (token) {
+      loadUserProfileData();
+    } else {
+      setUserData(false);
+    }
+  }, [token]);
 
   const value = {
+    setUserData,
+    loadUserProfileData,
+    userData,
+    token,
+    setToken,
     doctor,
     currancySymbol,
     backendUrl,

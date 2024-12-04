@@ -11,6 +11,7 @@ connectDB();
 import connectCloudinary from "./config/cloudinary.js";
 import adminRouter from "./routes/adminRoute.js";
 import doctorRouter from "./routes/doctorRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 connectCloudinary();
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(cors());
 // api endpoints
 app.use("/api/admin", adminRouter);
 app.use("/api/doctor", doctorRouter);
+app.use("/api/user", userRouter);
 app.use("/uploads", express.static(path.join("uploads")));
 
 const PORT = process.env.PORT || 3000;

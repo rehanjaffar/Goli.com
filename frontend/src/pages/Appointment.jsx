@@ -14,7 +14,7 @@ const Appointment = () => {
   const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
   const fetchDocInfo = async () => {
-    const docInfo = doctor.find((doc) => doc._id || doc.id === docId);
+    const docInfo = doctor.find((doc) => doc._id === docId || doc.id === docId);
     setDocInfo(docInfo);
   };
 
