@@ -1,0 +1,212 @@
+[
+    {
+        "name": "Dr. Richard James",
+        "image": "uploads/doc1.png",
+        "speciality": "General physician",
+        "degree": "MBBS",
+        "experience": "4 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 50,
+        "email": "richard.james2@example.com",
+        "address": {
+            "line1": "17th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Emily Larson",
+        "image": "uploads/doc2.png",
+        "speciality": "Gynecologist",
+        "degree": "MBBS",
+        "experience": "3 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 60,
+        "email": "emily.larson@example.com",
+        "address": {
+            "line1": "27th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Sarah Patel",
+        "image": "uploads/doc3.png",
+        "speciality": "Dermatologist",
+        "degree": "MBBS",
+        "experience": "1 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 30,
+        "email": "sarah.patel@example.com",
+        "address": {
+            "line1": "37th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Christopher Lee",
+        "image": "uploads/doc4.png",
+        "speciality": "Pediatricians",
+        "degree": "MBBS",
+        "experience": "2 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 40,
+        "email": "christopher.lee@example.com",
+        "address": {
+            "line1": "47th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Jennifer Garcia",
+        "image": "uploads/doc5.png",
+        "speciality": "Neurologist",
+        "degree": "MBBS",
+        "experience": "4 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 50,
+        "email": "jennifer.garcia@example.com",
+        "address": {
+            "line1": "57th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Andrew Williams",
+        "image": "uploads/doc6.png",
+        "speciality": "Neurologist",
+        "degree": "MBBS",
+        "experience": "4 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 50,
+        "email": "andrew.williams@example.com",
+        "address": {
+            "line1": "57th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Christopher Davis",
+        "image": "uploads/doc7.png",
+        "speciality": "General physician",
+        "degree": "MBBS",
+        "experience": "4 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 50,
+        "email": "christopher.davis@example.com",
+        "address": {
+            "line1": "17th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Timothy White",
+        "image": "uploads/doc8.png",
+        "speciality": "Gynecologist",
+        "degree": "MBBS",
+        "experience": "3 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 60,
+        "email": "timothy.white@example.com",
+        "address": {
+            "line1": "27th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Ava Mitchell",
+        "image": "uploads/doc9.png",
+        "speciality": "Dermatologist",
+        "degree": "MBBS",
+        "experience": "1 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 30,
+        "email": "ava.mitchell@example.com",
+        "address": {
+            "line1": "37th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Jeffrey King",
+        "image": "uploads/doc10.png",
+        "speciality": "Pediatricians",
+        "degree": "MBBS",
+        "experience": "2 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 40,
+        "email": "jeffrey.king@example.com",
+        "address": {
+            "line1": "47th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Zoe Kelly",
+        "image": "uploads/doc11.png",
+        "speciality": "Neurologist",
+        "degree": "MBBS",
+        "experience": "4 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 50,
+        "email": "zoe.kelly@example.com",
+        "address": {
+            "line1": "57th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Patrick Harris",
+        "image": "uploads/doc12.png",
+        "speciality": "Neurologist",
+        "degree": "MBBS",
+        "experience": "4 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 50,
+        "email": "patrick.harris@example.com",
+        "address": {
+            "line1": "57th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Chloe Evans",
+        "image": "uploads/doc13.png",
+        "speciality": "General physician",
+        "degree": "MBBS",
+        "experience": "4 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 50,
+        "email": "chloe.evans@example.com",
+        "address": {
+            "line1": "17th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Ryan Martinez",
+        "image": "uploads/doc14.png",
+        "speciality": "Gynecologist",
+        "degree": "MBBS",
+        "experience": "3 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 60,
+        "email": "ryan.martinez@example.com",
+        "address": {
+            "line1": "27th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    },
+    {
+        "name": "Dr. Amelia Hill",
+        "image": "uploads/doc15.png",
+        "speciality": "Dermatologist",
+        "degree": "MBBS",
+        "experience": "1 Years",
+        "about": "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+        "fees": 30,
+        "email": "amelia.hill@example.com",
+        "address": {
+            "line1": "37th Cross, Richmond",
+            "line2": "Circle, Ring Road, London"
+        }
+    }
+]

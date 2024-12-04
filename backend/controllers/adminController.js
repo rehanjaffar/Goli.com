@@ -22,50 +22,27 @@ const addDoctor = async (req, res) => {
       date,
     } = req.body;
 
-    const imageFile = req.file;
-
-    //checking all data
-    if (
-      !name ||
-      !email ||
-      !password ||
-      !speciality ||
-      !degree ||
-      !experience ||
-      !about ||
-      !fees ||
-      !address
-    ) {
-      return res
-        .status(401)
-        .json({ success: false, message: "Missing Details" });
-    }
-
     //cheacking valid email
     if (!validator.isEmail(email)) {
-      return res
-        .status(401)
-        .json({ success: false, message: "Please enter a valid email" });
+      return res.json({
+        success: false,
+        message: "Please enter a valid email",
+      });
     }
 
     //validation strong password
     if (password.length < 8) {
       return res
         .status(401)
-        .json({ success: false, message: "Please enter a strong email" });
+        .json({ success: false, message: "Please enter a strong password" });
     }
 
     //hash password
 
     const salt = await bcrypt.genSalt(10);
     const hashPass = await bcrypt.hash(password, salt);
-
-    // upload image to cloudinary
-    const imageUpload = await cloudinary.uploader.upload(imageFile.path, {
-      resource_type: "image",
-    });
-
-    const imageUrl = imageUpload.secure_url;
+    //image get
+    const imageUrl = req.file ? req.file.path : null;
 
     const doctorData = {
       name,
@@ -82,13 +59,12 @@ const addDoctor = async (req, res) => {
       date: Date.now(),
     };
     const newDoctor = new doctorModel(doctorData);
-
     await newDoctor.save();
-
     res.status(200).json({ success: true, message: "Doctor Added" });
   } catch (error) {
+    res.status(401).json({ success: false, message: "Email Already exist" });
+
     console.log(error);
-    res.status(401).json({ success: true, message: error.message });
   }
 };
 
@@ -112,4 +88,38 @@ const loginAdmin = async (req, res) => {
   }
 };
 
-export { addDoctor, loginAdmin };
+//api to get all doc list to admin panel
+const allDoctors = async (req, res) => {
+  try {
+    const doctors = await doctorModel.find({}).select("-password");
+    res.json({ success: true, doctors });
+  } catch (error) {
+    console.log(error.message);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+//api to add all at once
+
+const addAll = async (req, res) => {
+  try {
+    const doctors = req.body; // Expecting an array of products
+    if (!Array.isArray(doctors)) {
+      return res.status(400).json({
+        success: false,
+        message: "Input data should be an array of products.",
+      });
+    }
+
+    const newDoctors = await doctorModel.insertMany(doctors); // Save all products at once
+    res.status(200).json({
+      success: true,
+      message: "Products saved successfully",
+      data: newDoctors,
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export { addDoctor, loginAdmin, allDoctors, addAll };

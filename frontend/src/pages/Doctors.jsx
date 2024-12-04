@@ -10,13 +10,13 @@ const Doctors = () => {
   const [showfilter, setShowFilter] = useState(false);
 
   const [filterDoctors, setFilterDoctors] = useState([]);
-  const { doctors } = useContext(AppContext);
+  const { doctor, backendUrl } = useContext(AppContext);
 
   const applyFilter = () => {
     if (speciality) {
-      setFilterDoctors(doctors.filter((doc) => doc.speciality === speciality));
+      setFilterDoctors(doctor.filter((doc) => doc.speciality === speciality));
     } else {
-      setFilterDoctors(doctors);
+      setFilterDoctors(doctor);
     }
   };
 
@@ -30,7 +30,7 @@ const Doctors = () => {
 
   useEffect(() => {
     applyFilter();
-  }, [doctors, speciality]);
+  }, [doctor, speciality]);
 
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
@@ -93,7 +93,11 @@ const Doctors = () => {
               onClick={() => navigate(`/appointment/${item._id}`)}
               className="border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500"
             >
-              <img src={item.image} alt="" className="bg-blue-50" />
+              <img
+                src={item._id ? `${backendUrl}/${item.image}` : `${item.image}`}
+                alt=""
+                className="bg-blue-50"
+              />
               <div className="p-4">
                 <div className="flex items-center gap-2 text-sm text-center text-green-500">
                   <p className="w-2 h-2 rounded-full bg-green-500"></p>{" "}
