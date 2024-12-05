@@ -47,14 +47,18 @@ const MyProfile = () => {
       <div className="max-w-lg flex flex-col gap-2 text-sm">
         {isEdit ? (
           <label htmlFor="image">
-            <div className="inline-block relative cursor-pointer">
+            <div className="inline-block relative cursor-pointer mb-3">
               <img
-                className="w-36 rounded opacity-75"
-                src={image ? URL.createObjectURL(image) : userData.image}
+                className="w-36 min-h-32 rounded opacity-75"
+                src={
+                  image
+                    ? URL.createObjectURL(image)
+                    : `${backendUrl}/${userData.image}`
+                }
                 alt=""
               />
               <img
-                className="w-10 absolute bottom-12 right-12 "
+                className="w-10 bg-slate-300 absolute bottom-12 right-12 "
                 src={image ? "" : assets.upload_icon}
                 alt=""
               />
@@ -72,7 +76,7 @@ const MyProfile = () => {
               userData._id ? `${backendUrl}/${userData.image}` : userData.image
             }
             alt=""
-            className="w-36 rounded"
+            className="w-36 min-h-32 rounded"
           />
         )}
 

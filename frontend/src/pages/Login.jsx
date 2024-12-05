@@ -47,6 +47,8 @@ const Login = () => {
     }
   };
 
+  console.log(token);
+
   useEffect(() => {
     if (token) {
       navigate("/");
