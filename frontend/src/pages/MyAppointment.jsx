@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 
 const MyAppointment = () => {
-  const { doctor } = useContext(AppContext);
+  const { doctor, backendUrl } = useContext(AppContext);
   return (
     <div>
       <p className="pb-3 mt-12 font-medium text-zinc-700 border-b">
@@ -15,7 +15,11 @@ const MyAppointment = () => {
             className="grid grid-cols-[1fr_2fr] gap-4 sm:flex sm:gap-6 py-2 border-b"
           >
             <div>
-              <img className="w-32 bg-indigo-50 " src={item.image} alt="" />
+              <img
+                className="w-32 bg-indigo-50 "
+                src={item._id ? `${backendUrl}/${item.image}` : `${item.image}`}
+                alt=""
+              />
             </div>
             <div className="flex-1 text-sm text-zinc-600">
               <p className="text-neutral-800 font-semibold">{item.name}</p>

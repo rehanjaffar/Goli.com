@@ -21,6 +21,7 @@ const AppContextProvider = (props) => {
     email: "dumy@gmail.com",
     phone: "+92 3** *******",
     gender: "Male",
+    slots_booked: { slotDate: [], slotTime: [] },
   });
 
   const [token, setToken] = useState(localStorage.getItem("token") || "");
@@ -48,7 +49,6 @@ const AppContextProvider = (props) => {
       if (data.success) {
         setUserData(data.userData);
         toast.success(data.message);
-        console.log(data);
       } else {
         toast.error(data.message);
         console.log(data.message);
